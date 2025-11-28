@@ -46,7 +46,7 @@ export const chatsRelations = relations(chats, ({ one, many }) => ({
 export const messages = pgTable('messages', {
   id: varchar({ length: 36 }).primaryKey().$defaultFn(() => crypto.randomUUID()),
   chatId: varchar({ length: 36 }).notNull().references(() => chats.id, { onDelete: 'cascade' }),
-  model: modelEnum().default('openai/gpt-5-nano').notNull(),
+  model: modelEnum(),
   role: roleEnum().notNull(),
   parts: json(),
   ...timestamps

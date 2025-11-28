@@ -1,6 +1,6 @@
 {
-  "id": "4649a6e7-6b2e-4bbc-86c5-7d5bbaa2cd87",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "9ef73371-fb45-4a3a-8949-5e76be9c0912",
+  "prevId": "4649a6e7-6b2e-4bbc-86c5-7d5bbaa2cd87",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -73,6 +73,13 @@
           "type": "varchar(36)",
           "primaryKey": false,
           "notNull": true
+        },
+        "model": {
+          "name": "model",
+          "type": "model",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
         },
         "role": {
           "name": "role",
@@ -220,6 +227,15 @@
     }
   },
   "enums": {
+    "public.model": {
+      "name": "model",
+      "schema": "public",
+      "values": [
+        "openai/gpt-5-nano",
+        "anthropic/claude-haiku-4.5",
+        "google/gemini-2.5-flash"
+      ]
+    },
     "public.provider": {
       "name": "provider",
       "schema": "public",

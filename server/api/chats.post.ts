@@ -7,7 +7,6 @@ export default defineEventHandler(async (event) => {
   const [chat] = await db.insert(tables.chats).values({
     title: '',
     userId: session.user?.id || session.id,
-    model: model as 'openai/gpt-5-nano' | 'anthropic/claude-haiku-4.5' | 'google/gemini-2.5-flash'
   }).returning()
   if (!chat) {
     throw createError({ statusCode: 500, statusMessage: 'Failed to create chat' })
@@ -16,7 +15,7 @@ export default defineEventHandler(async (event) => {
   await db.insert(tables.messages).values({
     chatId: chat.id,
     role: 'user',
-    model: 'openai/gpt-5-nano',
+    model: model as 'openai/gpt-5-nano' | 'anthropic/claude-haiku-4.5' | 'google/gemini-2.5-flash',
     parts: [{ type: 'text', text: input }]
   })
 

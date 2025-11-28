@@ -8,6 +8,13 @@
       "when": 1756991789044,
       "tag": "0000_amusing_gunslinger",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1764370177039,
+      "tag": "0001_skinny_callisto",
+      "breakpoints": true
     }
   ]
 }
