@@ -5,11 +5,12 @@ const loading = ref(false)
 const { model } = useModels()
 
 async function createChat(prompt: string) {
+  console.log(model)
   input.value = prompt
   loading.value = true
   const chat = await $fetch('/api/chats', {
     method: 'POST',
-    body: { input: prompt }
+    body: { input: prompt, model: model.value }
   })
 
   refreshNuxtData('chats')
