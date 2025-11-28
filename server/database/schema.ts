@@ -6,6 +6,7 @@ const timestamps = {
 }
 
 export const providerEnum = pgEnum('provider', ['github'])
+export const modelEnum = pgEnum('model', ['openai/gpt-5-nano', 'anthropic/claude-haiku-4.5', 'google/gemini-2.5-flash'])
 export const roleEnum = pgEnum('role', ['user', 'assistant'])
 
 export const users = pgTable('users', {
@@ -45,6 +46,7 @@ export const chatsRelations = relations(chats, ({ one, many }) => ({
 export const messages = pgTable('messages', {
   id: varchar({ length: 36 }).primaryKey().$defaultFn(() => crypto.randomUUID()),
   chatId: varchar({ length: 36 }).notNull().references(() => chats.id, { onDelete: 'cascade' }),
+  model: modelEnum().notNull(),
   role: roleEnum().notNull(),
   parts: json(),
   ...timestamps

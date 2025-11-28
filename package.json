@@ -31,6 +31,8 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.10.0",
+    "@oxc-parser/binding-darwin-arm64": "^0.99.0",
+    "@oxc-transform/binding-darwin-arm64": "^0.99.0",
     "@types/node": "^24.10.1",
     "drizzle-kit": "^0.31.7",
     "eslint": "^9.39.1",
